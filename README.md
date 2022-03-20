@@ -1,24 +1,52 @@
-# README
+# データベース設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                      | Type   | Options                   |
+| --------------------------- | ------ | ------------------------- |
+| nickname                    | string | null: false               |
+| email                       | string | null: false, unique: true |
+| encrypted_password          | string | null: false               |
+| family_name                 | string | null: false               |
+| given_name                  | string | null: false               |
+| family_name_katakana        | string | null: false               |
+| given_name_katakana         | string | null: false               |
+| birth_year                  | string | null: false               |
+| birth_month                 | string | null: false               |
+| birth_day                   | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :orders
 
-* Configuration
+## orders テーブル
 
-* Database creation
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| users   | references | null: false, foreign_key: true |
+| items   | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- belongs_to :item
 
-* Services (job queues, cache servers, search engines, etc.)
+## items テーブル
 
-* Deployment instructions
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- has_many :orders
+- belongs_to :user
+- has_one_attached  :image
+- belongs_to :item_category
+- belongs_to :item_status
+- belongs_to :delivery_burden
+- belongs_to :delivery_area
+- belongs_to :delivery_day
