@@ -17,34 +17,35 @@
 
 - has_many :items
 - has_many :orders
-- has_many :addresses
 
 ## addresses テーブル
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
 | post_code             | string     | null: false                    |
+| delivery_area_id      | references | null: false, foreign_key: true |
 | city                  | string     | null: false                    |
 | address_line          | string     | null: false                    |
-| phone_number          | string     | null: false                    |
-| region                | references | null: false, foreign_key: true |
-| user                  | references | null: false, foreign_key: true |
+| address_building      | string     | null: false                    |
+| phone_number          | integer    | null: false                    |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :order
 
 ## orders テーブル
 
 | Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| users   | references | null: false, foreign_key: true |
-| items   | references | null: false, foreign_key: true |
+| --------- | ---------- | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
+| address   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :address
 
 ## items テーブル
 
@@ -53,11 +54,12 @@
 | name                 | string     | null: false                    |
 | description          | text       | null: false                    |
 | price                | integer    | null: false                    |
-| item_category        | references | null: false, foreign_key: true |
-| item_status          | references | null: false, foreign_key: true | 
-| delivery_burden      | references | null: false, foreign_key: true |
-| delivery_area        | references | null: false, foreign_key: true |
-| delivery_day         | references | null: false, foreign_key: true |
+| item_category_id     | references | null: false, foreign_key: true |
+| item_status_id       | references | null: false, foreign_key: true | 
+| delivery_burden_id   | references | null: false, foreign_key: true |
+| delivery_area_id     | references | null: false, foreign_key: true |
+| delivery_day_id      | references | null: false, foreign_key: true |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
