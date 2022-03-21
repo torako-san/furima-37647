@@ -27,7 +27,8 @@
 | city                  | string     | null: false                    |
 | address_line          | string     | null: false                    |
 | address_building      | string     |                                |
-| phone_number          | integer    | null: false                    |
+| phone_number          | string     | null: false                    |
+| order                 | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -35,17 +36,16 @@
 
 ## orders テーブル
 
-| Column  | Type       | Options                        |
+| Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | user      | references | null: false, foreign_key: true |
 | item      | references | null: false, foreign_key: true |
-| address   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 ## items テーブル
 
@@ -59,7 +59,7 @@
 | delivery_burden_id   | integer    | null: false                    |
 | delivery_area_id     | integer    | null: false                    |
 | delivery_day_id      | integer    | null: false                    |
-| user                 | integer    | null: false                    |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
