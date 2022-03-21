@@ -23,10 +23,10 @@
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
 | post_code             | string     | null: false                    |
-| delivery_area_id      | references | null: false, foreign_key: true |
+| delivery_area_id      | integer    | null: false                    |
 | city                  | string     | null: false                    |
 | address_line          | string     | null: false                    |
-| address_building      | string     | null: false                    |
+| address_building      | string     |                                |
 | phone_number          | integer    | null: false                    |
 
 ### Association
@@ -54,12 +54,12 @@
 | name                 | string     | null: false                    |
 | description          | text       | null: false                    |
 | price                | integer    | null: false                    |
-| item_category_id     | references | null: false, foreign_key: true |
-| item_status_id       | references | null: false, foreign_key: true | 
-| delivery_burden_id   | references | null: false, foreign_key: true |
-| delivery_area_id     | references | null: false, foreign_key: true |
-| delivery_day_id      | references | null: false, foreign_key: true |
-| user                 | references | null: false, foreign_key: true |
+| item_category_id     | integer    | null: false                    |
+| item_status_id       | integer    | null: false                    |
+| delivery_burden_id   | integer    | null: false                    |
+| delivery_area_id     | integer    | null: false                    |
+| delivery_day_id      | integer    | null: false                    |
+| user                 | integer    | null: false                    |
 
 ### Association
 
