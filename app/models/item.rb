@@ -6,4 +6,5 @@ class Item < ApplicationRecord
   belongs_to :item_category
   belongs_to :item_status
   belongs_to :delivery_burden
+  belongs_to :delivery_area
 end
