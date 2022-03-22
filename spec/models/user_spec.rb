@@ -56,13 +56,13 @@ RSpec.describe User, type: :model do
       it 'passwordが英字を含んでいなければ登録できない' do
         @user.password = "123456"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password は6文字以上かつ英字と数字の両方を含めて下さい")
+        expect(@user.errors.full_messages).to include("Password は英字と数字の両方を含めて下さい")
       end
 
       it 'passwordが数字を含んでいなければ登録できない' do
         @user.password = "aaaaaa"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password は6文字以上かつ英字と数字の両方を含めて下さい")
+        expect(@user.errors.full_messages).to include("Password は英字と数字の両方を含めて下さい")
       end
 
       it 'passwordとpassword_confirmationが不一致では登録できない' do
