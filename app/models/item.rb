@@ -4,4 +4,5 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :item_category
+  belongs_to :item_status
 end
