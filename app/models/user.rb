@@ -18,4 +18,5 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は英字と数字の両方を含めて下さい" }
 
+  has_many :items
 end
