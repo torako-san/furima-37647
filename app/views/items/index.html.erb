@@ -134,12 +134,13 @@
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
-          <%# ordersテーブルを作成した際にsold out表示を実装する予定 %>
+              <%# 商品が売れていればsold outを表示しましょう %>
                <%# <% if %>
               <%# <div class='sold-out'> %>
                 <%# <span>Sold Out!!</span> %>
                 <%# <% end %>
           <%# </div> %>
+          <%# //商品が売れていればsold outを表示しましょう %>
           </div>
           <div class='item-info'>
           <h3 class='item-name'>
