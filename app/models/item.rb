@@ -11,7 +11,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, format: { with: /^[0-9]+$/, message: "は半角数値で入力して下さい" }, numericality: { length: { in: 300..9999999 }, message: "は¥300~¥9,999,999の範囲で入力して下さい" }
   validates :image, presence: true
   validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :item_status_id, numericality: { other_than: 1, message: "can't be blank" }
