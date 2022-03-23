@@ -35,13 +35,13 @@ RSpec.describe Item, type: :model do
       end
 
       it 'nameが空では登録できない' do
-        @item.name = ""
+        @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
 
       it 'descriptionが空では登録できない' do
-        @item.description = ""
+        @item.description = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
@@ -77,7 +77,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが空では登録できない' do
-        @item.price = ""
+        @item.price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
@@ -85,37 +85,37 @@ RSpec.describe Item, type: :model do
       it 'priceが¥300以下なら登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999で入力して下さい")
+        expect(@item.errors.full_messages).to include('Price は¥300~¥9,999,999で入力して下さい')
       end
 
       it 'priceが¥10,000,000以上なら登録できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999で入力して下さい")
+        expect(@item.errors.full_messages).to include('Price は¥300~¥9,999,999で入力して下さい')
       end
 
       it 'priceに半角数字でないと登録できない' do
-        @item.price = "３００"
+        @item.price = '３００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999で入力して下さい")
+        expect(@item.errors.full_messages).to include('Price は¥300~¥9,999,999で入力して下さい')
       end
 
       it 'priceに半角英字混合では登録できない' do
-        @item.price = "a300"
+        @item.price = 'a300'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999で入力して下さい")
+        expect(@item.errors.full_messages).to include('Price は¥300~¥9,999,999で入力して下さい')
       end
 
       it 'priceに半角英字では登録できない' do
-        @item.price = "aaaaa"
+        @item.price = 'aaaaa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999で入力して下さい")
-      end 
+        expect(@item.errors.full_messages).to include('Price は¥300~¥9,999,999で入力して下さい')
+      end
 
       it 'userが紐付いていないと登録できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end

@@ -3,7 +3,7 @@ FactoryBot.define do
     name                { Faker::Name.initials(number: 5) }
     description         { Faker::Lorem.sentence }
     price               { Faker::Number.between(from: 300, to: 9_999_999) }
-    item_category_id    { Faker::Number.between(from: 2, to: 12 ) }
+    item_category_id    { Faker::Number.between(from: 2, to: 12) }
     item_status_id      { Faker::Number.between(from: 2, to: 7) }
     delivery_burden_id  { Faker::Number.between(from: 2, to: 3) }
     delivery_area_id    { Faker::Number.between(from: 2, to: 48) }
