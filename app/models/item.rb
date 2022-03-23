@@ -11,7 +11,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9_999_999 }, numericality: true
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9_999_999, message: "は¥300~¥9,999,999で入力して下さい" }, numericality: true
   validates :image, presence: true
   validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :item_status_id, numericality: { other_than: 1, message: "can't be blank" }
