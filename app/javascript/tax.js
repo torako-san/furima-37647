@@ -5,10 +5,10 @@ function tax (){
     const Tax = 0.1;
     const addTaxPrice = document.getElementById("add-tax-price");
     const tax_fee = itemPriceValue * Tax;
-    addTaxPrice.innerHTML = tax_fee;
+    addTaxPrice.innerHTML = Math.floor(tax_fee);
     const profit = document.getElementById("profit");
     const salesProfit = itemPriceValue - tax_fee;
-    profit.innerHTML = salesProfit;
+    profit.innerHTML = Math.floor(salesProfit);
   });
 }
 
