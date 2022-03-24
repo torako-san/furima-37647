@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    redirect_to prototype_path
+  else
+    render :edit
   end
 
   def show
