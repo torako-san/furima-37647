@@ -16,7 +16,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= number_to_currency(@item.price, unit: "¥", format: "%u %n") %>
+        <%= number_to_currency(@item.price, unit: "¥", format: "%u %n", precision:0 ) %>
       </span>
       <span class="item-postage">
         <%= @item.delivery_burden.name %>
