@@ -8,6 +8,7 @@ class OrderAddress
     validates :address_line
     validates :address_building
     validates :phone_number, format: { with: /\A[0-9]{11}\z/ }
+    validates :token
   end
 
   validates :delivery_area_id, numericality: { other_than: 1, message: "can't be blank" }
