@@ -15,5 +15,7 @@ class OrderAddress
   def.save
     # 購入情報をを保存して、、変数に代入する
     order = Order.create(item_id: item_id, user_id: user_id)
+    # 住所情報を保存して、order変数のidを指定
+    Address.create(post_code: post_code, ctiy: city, address_line: address_line, address_building: address_building, :phone_number: phone_number, delivery_area_id: id, order_id: order.id )
   end
 end
