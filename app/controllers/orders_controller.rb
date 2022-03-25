@@ -1,14 +1,12 @@
 class OrdersController < ApplicationController
-  before_action :set_item, only: [:index, :create]
   
   def index
-    @order = Order.new
+    @order_address = OrderAddress.new
+    @item = Item.find(params[:item_id])
   end
 
-  def new
-    @order_address = OrderAddress.new
-
   def create
+    @order = Order.find(params[:id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       @order_address.save
