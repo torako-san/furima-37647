@@ -45,7 +45,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- has_one :address, dependent: :destroy
 
 ## items テーブル
 
@@ -63,5 +63,5 @@
 
 ### Association
 
-- has_one :order
+- has_one :order, dependent: :destroy
 - belongs_to :user
