@@ -9,6 +9,7 @@ class OrderAddress
     validates :address_line
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: "は11桁数字をハイフンなしで登録して下さい", allow_blank: true }
     validates :user_id
+    validates :item_id
   end
 
   validates :delivery_area_id, numericality: { other_than: 1, message: "can't be blank" }
