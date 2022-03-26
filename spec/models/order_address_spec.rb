@@ -29,10 +29,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'post_codeが空では購入できない' do
-        binding.pry
+        @order_address.post_code = ""
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Post code can't be blank")
       end
 
       it 'post_codeが「3桁数字ー4桁数字」でなければ購入できない' do
+        binding.pry
       end
 
       it 'delivery_area_idが空では購入できない' do
