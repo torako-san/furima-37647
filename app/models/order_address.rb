@@ -8,7 +8,7 @@ class OrderAddress
     validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'は入力が無効です（例：123-3456)', allow_blank: true }
     validates :city
     validates :address_line
-    validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'は11桁数字をハイフンなしで登録して下さい', allow_blank: true }
+    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'は10桁か11桁数字をハイフンなしで登録して下さい', allow_blank: true }
     validates :user_id
     validates :item_id
   end
