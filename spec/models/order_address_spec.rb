@@ -15,7 +15,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address).to be_valid
       end
 
-      it 'address_buildingが存在なくても商品を購入できる' do
+      it 'address_buildingが存在しなくて商品を購入できる' do
         @order_address.address_building = ""
         expect(@order_address).to be_valid
       end
@@ -77,7 +77,9 @@ RSpec.describe OrderAddress, type: :model do
       end
       
       it 'itemが紐付いていないと購入できない' do
-        binding.pry
+        @order_address.item_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
