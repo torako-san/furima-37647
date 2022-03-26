@@ -65,10 +65,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'phone_numberが11桁数字でなければ購入できない' do
-                binding.pry
+        @order_address.phone_number = "090-1234-4567"
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number は11桁数字をハイフンなしで登録して下さい")
       end
 
       it 'userが紐付いていないと購入できない' do
+        binding.pry
       end
       
       it 'itemが紐付いていないと購入できない' do
