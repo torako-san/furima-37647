@@ -79,9 +79,6 @@ RSpec.describe OrderAddress, type: :model do
       it 'itemが紐付いていないと購入できない' do
         binding.pry
       end
-
-      it 'orderが紐付いていないと購入できない' do
-      end
     end
   end
 end
