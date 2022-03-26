@@ -41,10 +41,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'delivery_area_idが空では購入できない' do
-        binding.pry
+        @order_address.delivery_area_id = 1
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Delivery area can't be blank")
       end
 
       it 'cityが空では購入できない' do
+        binding.pry
       end
 
       it 'address_lineが空では購入できない' do
