@@ -4,6 +4,8 @@ RSpec.describe OrderAddress, type: :model do
   before do
     @user = FactoryBot.create(:user)
     @item = FactoryBot.create(:item)
+    @item.image = fixture_file_upload('public/images/test.jpeg')
+    @item.save
     @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
     # インスタンスの生成処理に0.1s待機させて、読み込みタイムアウトを回避
     sleep 0.1
