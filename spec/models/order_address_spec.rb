@@ -59,10 +59,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'phone_numberが空では購入できない' do
-        binding.pry
+        @order_address.phone_number = ""
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
 
       it 'phone_numberが11桁数字でなければ購入できない' do
+                binding.pry
       end
 
       it 'userが紐付いていないと購入できない' do
