@@ -71,10 +71,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'userが紐付いていないと購入できない' do
-        binding.pry
+        @order_address.user_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("User can't be blank")
       end
       
       it 'itemが紐付いていないと購入できない' do
+        binding.pry
       end
 
       it 'orderが紐付いていないと購入できない' do
