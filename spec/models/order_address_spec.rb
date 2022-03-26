@@ -79,6 +79,12 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'phone_numberが12桁以上では購入できない' do
+        @order_address.phone_number = '090123456789'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number は10桁か11桁数字をハイフンなしで登録して下さい")
+      end
+
+      it 'phone_numberに半角数字以外が含まれている場合は購入できない' do
         binding.pry
       end
 
