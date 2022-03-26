@@ -23,10 +23,13 @@ RSpec.describe OrderAddress, type: :model do
 
     context '出品商品が購入できないとき' do
       it 'tokenが空では購入できない' do
-        binding.pry
+        @order_address.token = ""
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
 
       it 'post_codeが空では購入できない' do
+        binding.pry
       end
 
       it 'post_codeが「3桁数字ー4桁数字」でなければ購入できない' do
