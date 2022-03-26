@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:index, :create]
 
   def index
-    if @item.user_id == current_user.id || !@item.order.present? 
+    if @item.user_id == current_user.id || !@item.order.present?
       @order_address = OrderAddress.new
     else
       redirect_to root_path
@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def order_params
     params.require(:order_address).permit(:post_code, :delivery_area_id, :city, :address_line, :phone_number, :address_building).merge(
       user_id: current_user.id, item_id: @item.id, token: params[:token]
