@@ -16,17 +16,14 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'address_buildingが存在なくても商品を購入できる' do
-        binding.pry
-        # @order_address.address_building = ""
-        # expect(@order_address).to be_valid
+        @order_address.address_building = ""
+        expect(@order_address).to be_valid
       end
     end
 
     context '出品商品が購入できないとき' do
-      it 'priceが空では購入できない' do
-      end
-
       it 'tokenが空では購入できない' do
+        binding.pry
       end
 
       it 'post_codeが空では購入できない' do
