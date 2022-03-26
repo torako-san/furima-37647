@@ -47,10 +47,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'cityが空では購入できない' do
-        binding.pry
+        @order_address.city = ""
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("City can't be blank")
       end
 
       it 'address_lineが空では購入できない' do
+        binding.pry
       end
 
       it 'phone_numberが空では購入できない' do
