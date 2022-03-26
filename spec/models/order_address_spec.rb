@@ -11,10 +11,14 @@ RSpec.describe OrderAddress, type: :model do
 
   describe '商品購入機能' do
     context '出品商品が購入できるとき' do
-      it 'token、post_code、delivery_area_id、address_line、address_building、phone_number、user_id、item_idが存在すれば商品を購入できる' do
+      it '入力された全ての内容に問題がなければ商品を購入できる' do
+        expect(@order_address).to be_valid
       end
 
       it 'address_buildingが存在なくても商品を購入できる' do
+        binding.pry
+        # @order_address.address_building = ""
+        # expect(@order_address).to be_valid
       end
     end
 
